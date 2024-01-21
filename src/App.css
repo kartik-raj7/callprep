@@ -21,3 +21,6 @@
 .ant-tooltip-inner{
   background-color: #58c0e9cc !important;
 }
+.ant-result-title , .ant-result-subtitle{
+  color:white !important
+}

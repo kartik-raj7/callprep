@@ -115,7 +115,7 @@ function Jsonsection() {
           </Col>
       <Row>
         <Col className={style.cardsdisplaysection}>
-          {Array.isArray(filteredJson) ? (
+          {Array.isArray(filteredJson) && filteredJson.length>0? (
             filteredJson.map((jsonObject, index) => (
                 <Card key={index} className={style.listcards}>
                 <Row className={style.jsondatacopydownloadrow}>
@@ -127,7 +127,10 @@ function Jsonsection() {
             </Card>
             ))
           ) : (
-            <div>Error: Data is not an array</div>
+            <div className={style.emptyjsontext}>
+            <Image src='/nothinghere.png' preview={false} className={style.nothinghereimage}/>
+            <div className={style.searchemptytext}>Nothing to show here. Try Searching Something else </div>
+            </div>
           )}
         </Col>
       </Row>
