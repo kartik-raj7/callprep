@@ -1,0 +1,23 @@
+.ant-space-item{
+  width: 100%;
+}
+.ant-card-body> ul{
+    background-color: transparent !important;
+  }
+.ant-btn-default:disabled{
+  background-color: grey !important;
+  border: 2px solid #58c0e9cc;
+  color: black;
+}
+.ant-card-body{
+  width: 100%;
+}
+.loaderstyle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.ant-tooltip-inner{
+  background-color: #58c0e9cc !important;
+}

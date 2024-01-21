@@ -1,0 +1,294 @@
+@import './variables.scss';
+.generatejsonpage{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+@keyframes blink {
+    0%   {}
+    100% { 
+      text-shadow: 
+        0 0 2px $secondary-color,
+        0 0 10px $secondary-color,
+        0 0 20px $secondary-color,
+        0 0 40px $primary-color,
+        0 0 70px $primary-color,
+        0 0 80px $primary-color;
+    }
+  }
+.jsonarea{
+    display: flex;
+    justify-content: center;
+   
+}
+.jsoncard{
+    min-width: 50%;
+    min-height: 65vh;
+    z-index: 100;
+    margin: 30px 0;
+    display: flex;
+background: $black;
+border-radius: 16px;
+box-shadow: 0 4px 30px $primary-color;
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 2px solid rgba(88, 192, 233, 0.6);
+}
+.togglebuttons{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+.generatejsonbtn{
+    margin-right: 15px;
+    background-color: $primary-color;
+    color: $secondary-color;
+    border: 1px solid black;
+    font-weight: 600;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.generatejsonbtn:hover{
+    color: #58c0e9cc;
+    background-color:$secondary-color ;
+}
+.generatejsoncardsbtn{
+    color: black;
+    background-color:$secondary-color ;
+    font-weight: 600;
+    border: 1px solid black;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.generatejsoncardsbtn:hover{
+    background-color: $primary-color;
+    color: $secondary-color !important;
+    
+}
+.emptyjsontext{
+    color: $secondary-color;
+}
+.spinnerstyle{
+    color: $primary-color !important;
+}
+.cardssection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 60px;
+}
+
+.cardssectionheading{
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $primary-color;
+    font-weight: 600;
+    text-transform: uppercase;
+
+
+
+    // text-align: center;
+    // width: 100%;
+    // height: 50px;
+    // display: flex;
+    // font-size: 30px;
+    // justify-content: center;
+    // align-items: center;
+    // font-weight: 600;
+    // margin-top: 25px;
+    
+
+    // /* From https://css.glass */
+    // background: rgba(255, 255, 255, 0.2);
+    // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    // backdrop-filter: blur(5px);
+    // -webkit-backdrop-filter: blur(5px);
+    // border: 1px solid $primary-color;
+
+
+    span {
+      color: $secondary-color;
+      text-shadow: 
+        0 0 2px $secondary-color,
+        0 0 10px $secondary-color,
+        0 0 20px $primary-color,
+        0 0 30px $primary-color,
+        0 0 40px $primary-color,
+        0 0 50px $primary-color;
+      animation: blink 1.5s infinite alternate;
+      text-decoration: underline;
+    }
+  }
+.cardsdisplaysection{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    }
+.listcards{
+    width: 30%;
+    background-color: black;
+    margin: 10px;
+    overflow: hidden; 
+z-index: 0;
+border-radius: 10px;
+}
+.searchsection{
+    display: flex;
+    justify-content: center;
+    margin: 60px 0;
+}
+.searchbar{
+    width: 50%;
+}
+.listcards:before, .animated-border-box-glow:before {
+  content: '';
+  z-index: -2;
+  text-align: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(0deg);
+  position: absolute;
+	width: 99999px;
+	height: 99999px;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-image: conic-gradient(rgba(255, 255, 255, 0.6), #00aac1, rgba(0,0,0,0) 65%);
+	animation: rotate 3s linear infinite;
+}
+
+.listcards:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	left: 5px;
+	top: 5px;
+	width: calc(100% - 10px);
+	height: calc(100% - 10px);
+	background: black;
+	border-radius: 7px;
+}
+.jsondatacopydownloadrow{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+@keyframes rotate {
+	100% {
+		transform: translate(-50%, -50%) rotate(1turn);
+	}
+}
+
+
+.jsongreeting {
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    margin-top: 25px;
+    
+
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid $primary-color;
+
+
+    span {
+      color: $secondary-color;
+      color: black;
+      text-shadow: 
+        0 0 2px $secondary-color,
+        0 0 10px $secondary-color,
+        0 0 20px $primary-color,
+        0 0 30px $primary-color,
+        0 0 40px $primary-color,
+        0 0 50px $primary-color;
+      animation: blink 1.5s infinite alternate;
+    }
+  }
+
+  .emptyjsontext{
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .nothinghereimage{
+    height: 250px !important;
+    margin: 20px 0;
+  }
+  .copytoclipboardbtn , .downloadjsonbtn{
+    background-color: $black;
+    color:$primary-color;
+    border: 1px dotted $primary-color;
+    margin: 0 5px;
+  }
+.copytoclipboardbtn:hover , .downloadjsonbtn:hover{
+    background-color: $secondary-color;
+    .icons{
+        color: black;
+    }
+  }
+  .icons{
+    color: $secondary-color;
+  }
+ .icons:hover{
+    color: $black #272822 #383830 #49483e;
+}
+  @media (max-width:$tablet-screen){
+  .jsoncard{
+    min-width: 70%;
+    margin: 25px 0;
+    min-height: 55vh;
+  }
+  .listcards{
+    width: 45%;
+  }
+    .searchbar{
+      width: 80%;
+      }
+      .searchsection{
+      margin: 35px 0;
+       }
+  }
+  @media (max-width:$mobile-screen) {
+     .jsongreeting{
+        margin-bottom: 40px;
+        font-size: 20px;
+     }
+     .listcards{
+        width: 80%;
+        min-height: 25vh;
+      }
+      .emptyjsontext{
+        font-size: 18px;
+        text-align: center;
+      }
+      .searchbar{
+      width: 80%;
+      }
+      .searchsection{
+      margin: 20px 0;
+       }
+  }
+ 
