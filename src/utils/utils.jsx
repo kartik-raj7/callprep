@@ -29,5 +29,8 @@ function handleDownloadAsJson(convertedJson) {
     openNotificationWithIcon('error', 'Failed to download data');
   }
 }
-
-export { copytoClipboard, handleDownloadAsJson };
+const theme = {
+  scheme: 'monokai',
+  author: 'wimer hazenberg (http://www.monokai.nl)',
+};
+export { copytoClipboard, handleDownloadAsJson,theme };

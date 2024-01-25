@@ -7,6 +7,8 @@ import { IoCopyOutline, IoSearch } from "react-icons/io5";
 import { copytoClipboard, handleDownloadAsJson } from '../../utils/utils';
 import { TiDownload } from "react-icons/ti";
 import { openNotificationWithIcon } from '../../utils/ui/notification';
+import Cardsection from './Cardsection';
+import {theme} from '../../utils/utils'
 function Jsonsection() {
   const [json, setJson] = useState([]);
   const [convertedjson,setConvertedJson] = useState({});
@@ -14,12 +16,6 @@ function Jsonsection() {
   const [showcards,setShowCards] = useState(false);
   const [disablecreatenewcards,setDisableCreateNewCards] = useState(true);
   const [copyclipboarddata,setcopyClipboardData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filteredJson, setFilteredJson] = useState([]);
-  const theme = {
-    scheme: 'monokai',
-    author: 'wimer hazenberg (http://www.monokai.nl)',
-  };
   function generatenewJson(){
     setJson([]);
     setConvertedJson([]);
@@ -28,8 +24,10 @@ function Jsonsection() {
     setTimeout(() => {
         try {
       const generatedJsonString = generateRandomJSON();
+
       setcopyClipboardData(generatedJsonString);
       const generatedJsonObject = JSON.parse(generatedJsonString);
+      console.log(generatedJsonString);
       setJson(generatedJsonObject);
       const convertedJsonObject = generatedJsonObject.reduce((acc, jsonObject, index) => {
         acc[index] = jsonObject;
@@ -48,20 +46,10 @@ function Jsonsection() {
       }
     }, 2000);
   }
-  
   function showCards(){
     setShowCards(true);
     setDisableCreateNewCards(true);
   }
-  function handleSearchInputChange(event) {
-    setSearchTerm(event.target.value);
-  }
-
-  useEffect(() => {
-    setFilteredJson(
-      json.filter((jsonObject) => JSON.stringify(jsonObject).includes(searchTerm))
-    );
-  }, [json, searchTerm]);
   useEffect(() => {
     console.log(json); 
   }, [json]);
@@ -98,43 +86,7 @@ function Jsonsection() {
       <Button disabled={disablecreatenewcards||loading} onClick={showCards}  className={style.generatejsoncardsbtn}>Create Cards</Button>
       </Row>
       {showcards && (
-    <Space className={style.cardssection}>
-      <Col span={24} className={style.cardssectionheading}>
-        <span>Section for new cards</span>
-      </Col>
-      <Col span={24} className={style.searchsection}>
-            <Input
-              placeholder="Search JSON"
-              value={searchTerm}
-              disabled={loading}
-              className={style.searchbar}
-              suffix={<IoSearch/>}
-              onChange={handleSearchInputChange}
-            />
-
-          </Col>
-      <Row>
-        <Col className={style.cardsdisplaysection}>
-          {Array.isArray(filteredJson) && filteredJson.length>0? (
-            filteredJson.map((jsonObject, index) => (
-                <Card key={index} className={style.listcards}>
-                <Row className={style.jsondatacopydownloadrow}>
-       
-       <Tooltip placement="top" title='copy to clipboard'><Button onClick={()=>copytoClipboard(JSON.stringify(jsonObject))} className={style.copytoclipboardbtn}><IoCopyOutline className={style.icons}/></Button></Tooltip>
-       <Tooltip placement="top" title='download as json'><Button onClick={()=>handleDownloadAsJson(jsonObject)} className={style.downloadjsonbtn}><TiDownload className={style.icons}/></Button></Tooltip>
-       </Row>
-              <JSONTree data={jsonObject} hideRoot={true} shouldExpandNode={() => true} theme={theme} invertTheme/>
-            </Card>
-            ))
-          ) : (
-            <div className={style.emptyjsontext}>
-            <Image src='/nothinghere.png' preview={false} className={style.nothinghereimage}/>
-            <div className={style.searchemptytext}>Nothing to show here. Try Searching Something else </div>
-            </div>
-          )}
-        </Col>
-      </Row>
-    </Space>
+       <Cardsection loading={loading} json={json}/>
   )}
       </Space>
     </>
